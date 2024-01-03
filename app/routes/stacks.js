@@ -1,5 +1,4 @@
 import Ember from 'ember';
-// import 'regenerator-runtime/runtime';
 
 
 export default Ember.Route.extend({
@@ -41,7 +40,6 @@ export default Ember.Route.extend({
     //       // Optionally, you can re-throw the error to propagate it to the next catch block
     //       throw error;
     //     }    
-
     //   }
 
     model() {

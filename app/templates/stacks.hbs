@@ -1,40 +1,111 @@
 
-
 <div class="stack">
-  <div class="home-div"><img src="https://iili.io/JR0VRSI.png" alt="home icon"></div>
-
-<div class="add-new-stack-btn">
-<button type="button" >Add new stack</button>
-  </div>
-<div class="stack-container-list">
   
- <div class="stacks-header">
-  <h5>Stacks</h5>
-  <h5>Environment</h5>
-  <h5>Availability</h5>
-  <h5>History</h5>
+  <div class="heading-container">
+       <h2>Stacks management</h2>
+       <button {{action 'openAddStackPopup'}} type="button" ><img src="https://iili.io/JRipjI9.png" class="mb-1"/> Add new stack </button>
+  </div>
 
-</div>
- 
+  <div class="stack-container-list">
+     
+    <div class="stacks-header">
+      <h5>Stacks</h5>
+      <h5>Environment</h5>
+      <h5>Availability</h5>
+      <h5>History</h5>
+    </div> 
+
   {{#each stack in model}}
   <div class="single-stack">
     <h6>{{stack.name}}</h6>
-    <p>{{stack.environment}}</p>  
-    <button {{action 'openEmailPopup'}}>Use</button>
-    <img src="https://iili.io/JR0TVa4.png" alt="history">
+    <p class="environment">{{stack.environment}}</p>  
+
+    <div class="availability-btn-div">
+    
+{{#if userEmailAddress}}
+{{#if stack.availability}}
+ <button class="stack-use" {{action 'openUseStackPopup' stack.id}}>Use</button>
+{{else}}
+  {{#if (eq stack.usageHistory.userEmail userEmailAddress)}}
+    <button class="stack-release" {{action 'releaseStack' stack.id}}>Release</button>
+  {{else}}
+    <button disabled="true" class="stack-release" >Release</button>
+   <div class="in-use-div">
+    <p>  Employing by: {{stack.usageHistory.userEmail}}  </p>
+    <p>FE: <b>{{stack.usageHistory.frontendBranch}}</b>, BE: <b>{{stack.usageHistory.backendBranch}}</b></p>
+   </div>
+     {{/if}}
+  {{/if}}
+   {{/if}}
+
+
+</div>
+
+
+  {{#if stack.usageHistory.id}}
+      {{#link-to 'usage-history' stack.id }}
+      <img src="https://iili.io/JR0TVa4.png" alt="history">
+      {{/link-to}}
+    {{else}}
+      <img src="https://iili.io/JR0TVa4.png" alt="history">
+  {{/if}}
   </div>
-{{/each}}
+  
+    {{/each}} 
+
 
 </div>
 </div>
 
-{{#if isEmailPopupOpen}} <div class="email-popup-div">
+{{#if isEmailPopupOpen}} 
+<div class="popup">
     <div class="email-verify-div">
-      <img src="https://iili.io/JRV5cZv.png" alt="cross-icon" {{ action 'closeEmailPopup'}}>
+     
       <form >
-        <p>Email {{input type="email" name="email" value=email}}</p>
+        <p>Email {{input type="email" name="email" required="true" value=email}}</p>
         <button {{ action 'verifyEmail'}} type="submit">Verify</button>
       </form>
     </div>
   </div>
+{{/if}}
+
+{{#if isAddStackPopupOpen}} 
+<div class="add-new-stack-div popup">
+  <div class="mb-3 add-stack-div">
+
+    <img src="https://iili.io/JRV5cZv.png" alt="cross-icon" {{action 'closeAddStackPopup'}}>
+        <h5 class="form-heading">Add stack</h5>
+    <form method="post">
+      <label for="name" class="form-label">Stack name</label>
+      {{input type="text" class="form-control" id="name" placeholder="stack name" required="true" value=name}}
+
+      <label for="environment" class="form-label">Environment</label>
+      {{input type="text" class="form-control" id="environment" placeholder="environment" required="true" value=environment}}
+
+      <button {{action 'addStack'}} type="submit">save</button>    
+    </form>
+  </div>
+</div>
+{{/if}}
+
+
+{{!-- use stack form --}}
+
+{{#if isUseStackPopupOpen}}
+<div class="popup">
+  <div class="mb-3 use-stack-div">
+    <img src="https://iili.io/JRV5cZv.png" alt="cross-icon" {{action 'closeUseStackPopup'}}>
+     <h5 class="form-heading">Add branches</h5>
+    <form method="post">
+      <label for="frontendBranch" class="form-label" >Frontend branch</label>
+      {{input type="text" class="form-control" id="frontendBranch" placeholder="frontendbranch" required="true" value=frontendBranch}}
+
+      <label for="backendBranch" class="form-label">Backend branch</label>
+      {{input type="text" class="form-control" id="backendBranch" placeholder="backendbranch" required="true" value=backendBranch}}
+
+      <button {{action 'UseStack'}} type="submit">use stack </button>
+
+    </form>
+  </div>
+</div>
 {{/if}}

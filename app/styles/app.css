@@ -1,155 +1,258 @@
-.stacks-header{
-    display: flex;
-    justify-content: space-between;
-    padding: 2vh 3vw 2vh 3vw;
-    position: sticky;
-    top: 0;
-background-color: white;
-margin-bottom: 2vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: 0;
 }
-.stacks-header h5:nth-child(2){
-margin-left: 2vw;
-}
-.stacks-header h5:nth-child(3){
-    margin-right: -5.8vw;
-}
-div.stack-container-list{
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    margin: 10vh 2vw 4vh 2vw ;
-    padding: 2vh 2vw 4vh 2vw;
+p{
+    margin:0;
+    padding:0;
 }
 
-.stack-container-list img{
-    width:1.7vw;
-    height:2.7vh;
-    margin-left: 15vw;
-    margin-right: 2vw;
-    margin-top: 1.7vh;
-}
-.stack-container-list img:hover{
-    cursor: pointer;
-}
-.single-stack{
-    display: flex;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
-    border-radius: 5px;
-
-    padding: 1.5vh 2vw;
-}
-.single-stack:hover{
-    box-shadow: 0px 8px 24px 0px rgba(140, 149, 159, 0.2);
-}
-.single-stack h6{
-    margin-left: 2vw;
-    margin-top: 1vh;
-    width:24vw;
-
-}
-.single-stack p{
- margin-top: 1vh;
- width:20vw;
-padding-left: 3vw;
-align-items: center;
-}
-.single-stack button{
-    border: none;
-    background-color: rgb(45, 192, 99);
-    color: white;
-    height:4vh;
-    padding: .5vh 3vw;
-    font-size: 14px;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-left: 8vw;
-
-}
-.single-stack button:hover{
-    box-shadow: 0px 9px 20px rgba(13, 38, 76, 0.19);
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding:0;
 }
 
-.stack{
-display: flex;
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:  rgb(248, 249, 250);
 }
+
+
+/* side div */
+
 .home-div{
-    padding: 5vh 1.5vw;
-   
-    background-color: rgb(2, 2, 81);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; 
+    width: 6vw;  
+    background-color: rgb(2, 2, 81); 
+    border-left: 1px solid #ccc; 
 }
+
 .home-div img{
+    margin: 1.5vw;
     width:3vw;
-    height: 5.5vh;
+    height: 6vh;
 }
+
 .home-div img:hover{
     cursor: pointer;
 }
-.add-new-stack-btn{
-    position: absolute;
-    right:10vw;
-  margin-top: 3vh;
- 
-   
+
+/* heading conatiner */
+
+.heading-container{
+    margin-top: 2%;
+    margin-left: 9%;
+    width: 88vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-.add-new-stack-btn button{
+
+.heading-container h2{
+    text-transform: capitalize;
+    color: rgb(2, 2, 81);
+}
+
+.heading-container button{
     border: none;
     background-color: rgb(2, 2, 81);
     padding: 1vh 2.3vw;
     color: white;
     border-radius: 5px;
+    font-weight: 200;
 }
-.add-new-stack-btn button:hover{
-    box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+
+.heading-container button:hover{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
-/*cros Icon---*/
-.email-verify-div img{
+
+.add-stack-div img:hover{
+    cursor: pointer;
+}
+
+/* stack header */
+.stack{
+    padding-bottom: 5vh;
+
+} 
+.stacks-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 4vw 2vh 4vw;
+    position: sticky;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 2vh;
+}
+
+/* stack container list */
+
+
+div.stack-container-list{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin: 2vh 3vw 1vh 8vw;
+    padding: 2vh 2vw 4vh 2vw;
+}
+
+.single-stack{
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 2fr 0.5fr;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
+    padding: 1vw 0vh;
+    align-items: center;
+
+}
+
+.single-stack:hover{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 15px 0px;
+    background-color: rgba(255, 255, 255, 0.711);
+}
+
+.single-stack h6{
+    font-weight: 700;
+    margin-left: 20%;
+}
+
+.single-stack .environment{
+    text-transform: uppercase;
+    margin-left: 51%;
+}
+
+.single-stack .availability-btn-div{
+
+    left: 30%;
+}
+
+/* use button */
+
+.single-stack .stack-use{
+    border: 2.5px solid #A1BF99;
+    background-color: #A1BF99;
+    color:#475d42;
+    font-weight: bold;
+    width: 25%;
+    padding: .5vh 3vw;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-left: 43%;
+}
+
+/* release button */
+
+.single-stack .stack-release{
+    border: 2.5px solid #FDD095;
+    background-color: #FDD095;
+    color:rgb(189, 113, 0);;
+    font-weight: bold;
+    width: 25%;
+    padding: .5vh 3vw;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-left: 43%;
+}
+
+/* in use */
+.in-use-div p{
+    padding:0px;
+    margin:0px;
+}
+
+.in-use-div{
+    margin-left: 10%;
+    text-align: center;
+}
+
+.single-stack button:hover{
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.01);
+}
+
+.single-stack img{
+    margin-left: 40%;
+    width: 13%;
+    height: 4%;
+}
+
+.single-stack img:hover{
+    transform: scale(1.05);
+   cursor: pointer;
+}
+
+/* cross Icon---*/
+.popup img{
     width:1.7vw;
     height: 3.1vh;
-    margin: 2vh 1vw;
+    margin: 1.5%;
     border-radius: 50%;
     padding: 5px;
+    float: right;
 }
-.email-verify-div img:hover{
+
+
+
+
+.email-verify-div  img:hover, .add-stack-div img:hover, .use-stack-div img:hover{
     cursor: pointer;
     background-color: rgb(228, 228, 228);
 }
-.email-verify-div{
+
+/* email vefication div */
+.email-verify-div {
     width: 25vw;
     height: 28vh;
     background-color: rgb(255, 255, 255);
     padding: 1vh 0.6vw;
     border-radius: 10px;
-    /* display: none; */
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
 }
-
 .email-verify-div form{
-margin: 2vh 2vw;
+margin: 7vh 2vw;
 }
 .email-verify-div input[type="email"] {
-  padding: 2px 5px;
-  border: 1px solid gray;
-  border-radius: 5px;
+padding: 2px 5px;
+border: 1px solid gray;
+border-radius: 5px;
 margin-left: 1vw;
 margin-top: 3vh;
 height: 3.5vh;
 width:16vw;
 }
-.email-verify-div  button{
-   
+
+
+.email-verify-div button{
     border:none;
     background-color: rgb(2, 2, 81);
     color: white;
     padding: .8vh 2vw;
     font-size: 14px;
     border-radius: 5px;
-    margin-left: 15vw;
+    margin-left: 13.5vw;
     margin-top: 2vh;
 }
+
+
 .email-verify-div  button:hover{
     box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
 }
-.email-popup-div{
+
+/* usage history */
+
+.usagehistory-container{
+    height: 100vh;
+}
+
+/* popup  */
+
+.popup{
     display: flex;
     background-color: rgba(39, 39, 39, 0.563);
     width:100vw;
@@ -160,6 +263,120 @@ width:16vw;
     top: 0;
     position: fixed;
 }
-.popup-open{
-    visibility: visible;
+
+
+
+
+/* add new stack conatiner*/
+
+.add-stack-div{
+    width: 29vw;
+    height: 33.5vh;
+    background-color: rgb(255, 255, 255);
+    padding: 1vh 0.6vw;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
 }
+
+.add-stack-div button, .use-stack-div button{
+    border:none;
+    background-color: rgb(2, 2, 81);
+    color: white;
+    padding: .8vh 2vw;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-left: 18vw;
+    margin-top: -2vh;
+}
+.use-stack-div button{
+    margin-left: 16vw;
+}
+.add-stack-div  label{
+    margin-top: .5vh;
+}
+.form-control{
+    margin-bottom: 3vh;
+    margin-top: .5vh;
+}
+.add-stack-div form, .use-stack-div form{
+    padding: 2vh 2vw;
+}
+
+.form-heading{
+    width: 59%;
+    padding: 1%;
+    border-bottom: 1px solid #eee;
+    margin: 1.5%;
+    color:rgb(2, 2, 81);
+}
+
+/* use stack conatiner */
+
+.use-stack-div{
+    width: 29vw;
+    height: 33.5vh;
+    background-color: rgb(255, 255, 255);
+    padding: 1vh 0.6vw;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.02), 0px 0px 0px 1px rgba(27, 31, 35, 0.15);
+}
+.in-use-div p:nth-child(1){
+    color:red;
+    font-weight: 500;
+    font-size: 15px;
+}
+.in-use-div p:nth-child(2){
+    color:rgba(125, 125, 125, 0.794);
+    font-size: 15px;
+}
+
+
+a{
+    text-decoration: none;
+}
+.table-rows td{
+    padding:1.5vh 2vw;
+}
+.text-white tr th{
+    padding:3vh 2vw;
+    background-color:rgb(250, 253, 255)
+}
+
+.stack-release:disabled{
+    border: 2.5px solid #e2e2e2;
+    background-color: #e1e1e1;
+    color:rgb(152, 152, 152);;
+    font-weight: bold;
+    width: 25%;
+    padding: .5vh 3vw;
+    font-size: 14px;
+    border-radius: 25px;
+    margin-left: 43%;
+}
+
+.stack-release:disabled:hover{
+    transform: scale(.99);
+    cursor: not-allowed;
+    box-shadow: none;
+    
+}
+/* Initially hide the in-use-div */
+.in-use-div {
+    position:absolute;
+    margin-top:1vh;
+    background-color: rgb(243, 243, 243);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 5px;  
+     margin-left: 13vw;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Add transition for smooth animation */
+    pointer-events: none; /* Disable pointer events for the hidden div */
+    padding: 1vh 1vw;
+  }
+  
+  /* Show in-use-div when button is disabled and hovered */
+  .stack-release:disabled:hover + .in-use-div {
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events when visible */
+  }
+ 

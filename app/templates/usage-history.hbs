@@ -1,5 +1,14 @@
-<table class="table">
-  <thead>
+{{!-- <div class="usagehistory-container bg-light no-history"> 
+<div class="container d-flex flex-column align-items-center justify-content-center h-100 bg-body-tertiary rounded text-center no-history">
+
+
+
+ {{#if isHistoryEmpty}}
+     <img src="https://iili.io/JRUq8EG.jpg" alt="no history found">
+     {{else}}
+   
+<table class="table shadow-sm p-4" >
+  <thead class="bg-primary text-white">
     <tr>
       <th scope="col">User Email</th>
       <th scope="col">Frontend Branch</th>
@@ -7,13 +16,66 @@
     </tr>
   </thead>
   <tbody>
-
+    
     {{#each usage in model}} 
-    <tr>
-      <td>{{usage.userEmail}}</td>
-      <td>{{usage.frontEndBranch}}</td>
-      <td>{{usage.backEndBranch}}</td>
+    <tr class="table-rows">
+      <td><a href="mailto:{{usage.userEmail}}">{{usage.userEmail}}</a></td>
+      <td>{{usage.frontendBranch}}</td>
+      <td>{{usage.backendBranch}}</td>
     </tr>
     {{/each}}
+   
+    
   </tbody>
 </table>
+ {{/if}}
+</div>
+</div>
+
+ --}}
+
+
+
+
+<div class="usagehistory-container"> 
+
+
+
+<div class="container d-flex flex-column align-items-center pt-5 h-100 bg-body-tertiary rounded text-center">
+
+  {{#if model.length}}
+  <h2 style="color: #020251;">
+    Usage History - {{model.[0].stack.name}}
+  </h2>
+{{/if}}
+
+<table style="box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;"class="table table-striped mt-5 p-5">
+  <thead style="text-transform:uppercase;" class="table-header">
+    <tr>
+      <th scope="col" >User Email</th>
+      <th scope="col" >Frontend Branch</th>
+      <th scope="col" >Backend Branch</th>
+      <th scope="col" >started At</th>
+      <th scope="col" >ended At</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each usage in model}} 
+    <tr>
+      <td ><a style="color: #020251;" href="mailto:{{usage.userEmail}}">{{usage.userEmail}}</a></td>
+      <td >{{usage.frontendBranch}}</td>
+      <td >{{usage.backendBranch}}</td>
+      <td >{{format-date usage.startedAt}}</td>
+     {{#if (eq usage.endedAt null)}}
+      <td class="text-success font-weight-bold">Present</td>
+      {{else}}
+       <td >{{format-date usage.endedAt}}</td>
+     {{/if}}
+    </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+</div>
+</div>
